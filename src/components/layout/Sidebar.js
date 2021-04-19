@@ -4,19 +4,19 @@ import { CgChevronDown, CgInbox, CgCalendar, CgCalendarToday } from 'react-icons
 export const Sidebar = () => (
   <div className="sidebar" data-testid="sidebar">
     <ul className="sidebar__generic">
-      <li>
+      <li data-testid="inbox" className="inbox">
         <span>
           <CgInbox />
         </span>
         <span>Inbox</span>
       </li>
-      <li>
+      <li data-testid="today" className="today">
         <span>
           <CgCalendarToday />
         </span>
         <span>Today</span>
       </li>
-      <li>
+      <li data-testid="next_7" className="next_7">
         <span>
           <CgCalendar />
         </span>
@@ -27,8 +27,8 @@ export const Sidebar = () => (
     <div className="sidebar__middle">
       <span>
         <CgChevronDown />
-        <h2>Projects</h2>
       </span>
+      <h2>Projects</h2>
     </div>
 
     <ul className="sidebar__projects">Projects will be here!</ul>
