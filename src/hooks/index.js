@@ -9,12 +9,12 @@ export const useTasks = selectedProject => {
   
   useEffect(() => {
     let unsubscribe = firebase
-    .firestore()
-    .collection('tasks')
-    .where('userId', '==', 'URIAm1cOQApEUSN7QpGc');
+      .firestore()
+      .collection('tasks')
+      .where('userId', '==', 'URIAm1cOQApEUSN7QpGc');
 
-    unsubscribe = selectedProject && !collatedTasksExist(selectedProject) ?
-    (unsubscribe = unsubscribe.where('projectId', '==', selectedProject))
+    unsubscribe = selectedProject && !collatedTasksExist(selectedProject)
+    ? (unsubscribe = unsubscribe.where('projectId', '==', selectedProject))
     : selectedProject === 'TODAY'
     ? (unsubscribe = unsubscribe.where('date', '==', moment().format('DD/MM/YYYY')
     ))
@@ -23,7 +23,7 @@ export const useTasks = selectedProject => {
     : unsubscribe;
 
     unsubscribe = unsubscribe.onSnapshot(snapshot => {
-      const newTasks = snapshot.docs.map(task ({
+      const newTasks = snapshot.docs.map(task => ({
         id: task.id,
         ...task.data(), 
       }));
