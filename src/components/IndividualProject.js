@@ -27,7 +27,7 @@ export const IndividualProject = ({ project }) => {
       <span
         className="sidebar__project-delete"
         data-testid="delete-project"
-        onclick={() => setShowConfirm(!showConfirm)}
+        onClick={() => setShowConfirm(!showConfirm)}
       >
         <CgTrash />
         {showConfirm && (
