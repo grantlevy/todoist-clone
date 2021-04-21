@@ -8,7 +8,7 @@ export const IndividualProject = ({ project }) => {
   const { projects, setProjects } = useProjectsValue();
   const { setSelectedProject } = useSelectedProjectValue();
 
-  const deleteProject = docId => {
+  const deleteProject = (docId) => {
     firebase
       .firestore()
       .collection('projects')
@@ -28,6 +28,7 @@ export const IndividualProject = ({ project }) => {
         className="sidebar__project-delete"
         data-testid="delete-project"
         onClick={() => setShowConfirm(!showConfirm)}
+        role="button"
       >
         <CgTrash />
         {showConfirm && (
@@ -39,8 +40,9 @@ export const IndividualProject = ({ project }) => {
                 onClick={() => deleteProject(project.docId)}
               >
                 Delete
-                <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
               </button>
+              <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
+              
             </div>
           </div>
         )}
