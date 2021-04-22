@@ -4,6 +4,8 @@ import { generatePushId } from '../helpers';
 import { useSelectedProjectValue } from '../context';
 import { CgList, CgCalendarDates } from 'react-icons/cg';
 import moment from 'moment';
+import { ProjectOverlay } from './ProjectOverlay';
+import { TaskDate } from './TaskDate';
 
 export const AddTask = ({
   showAddTaskMain = true,
@@ -90,8 +92,16 @@ export const AddTask = ({
               </div>
             </>
           )}
-          <p>Project overlay here</p>
-          <p>Taskdate here</p>
+          <ProjectOverlay
+            setProject={setProject}
+            showProjectOverlay={showProjectOverlay}
+            setShowProjectOverlay={setShowProjectOverlay}
+          />
+          <TaskDate
+            setTaskDate={setTaskDate}
+            showTaskDate={showTaskDate}
+            setShowTaskDate={setShowTaskDate}
+          />
           <input
             className="add-task__content"
             data-testid="add-task-content"
