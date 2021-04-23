@@ -80,7 +80,7 @@ export const AddTask = ({
                 <h2 className="header">Quick Add Task</h2>
                 <span
                   className="add-task__cancel-x"
-                  data-testId="add-task-quick-cancel"
+                  data-testid="add-task-quick-cancel"
                   onClick={() => {
                     setShowMain(false);
                     setShowProjectOverlay(false);
@@ -113,7 +113,11 @@ export const AddTask = ({
             type="button"
             className="add-task__submit"
             data-testid="add-task"
-            onClick={() => addTask()}
+            onClick={() =>
+              showQuickAddTask
+                ? addTask() && setShowQuickAddTask(false)
+                : addTask()
+            }
           >
             Add Task
           </button>
