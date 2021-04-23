@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CgDarkMode } from 'react-icons/cg'
 
-export const Header = () => {
+export const Header = ({ darkMode, setDarkMode }) => {
+  const [shouldShowMain, setShouldMain] = useState(false);
+  const [showQuickAddTask, setShowQuickAddTask] = useState(false);
+
   return <header className="header" data-testid="header">
     <nav>
       <div className="logo">
@@ -10,7 +13,11 @@ export const Header = () => {
       <div className="settings">
         <ul>
           <li data-testid="quick-add-task-action" className="settings__add">+</li>
-          <li data-testid="dark-mode-action" className="settings__darkmode">
+          <li
+            data-testid="dark-mode-action"
+            className="settings__darkmode"
+            onClick={() => setDarkMode(!darkMode)}
+          >
             <CgDarkMode />
           </li>
         </ul>
